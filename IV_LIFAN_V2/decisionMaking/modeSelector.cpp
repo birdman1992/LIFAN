@@ -33,7 +33,7 @@ void DecisionMake::selectMode()
         this->right_lamp = false;
 
          this->gear_en = 0;
-         this->gear_value = GEAR_N; //D:14, N:12
+//         this->gear_value = GEAR_N; //D:14, N:12
            //action
          this-> left_lamp = true;//turn on the lamp
          this->right_lamp = true;
@@ -55,7 +55,7 @@ void DecisionMake::selectMode()
                  this->throttle_open = 0;
 
                  this->gear_en = 0;
-                 this->gear_value = GEAR_N;
+//                 this->gear_value = GEAR_N;
 
                  this-> left_lamp = false;
                  this->right_lamp = false;
@@ -76,7 +76,7 @@ void DecisionMake::selectMode()
                          this->throttle_open = 0;
 
                          this->gear_en = true;
-                         this->gear_value = GEAR_N;
+//                         this->gear_value = GEAR_N;
 
                           this->initVariables();
                     }
@@ -90,19 +90,19 @@ void DecisionMake::selectMode()
                         if(this->launch_go == true)
                         {
                             this->gear_en = true;
-                            this->gear_value = GEAR_D;//gear_obj_in_auto;
-                            if(this->cur_gear == GEAR_E || this->cur_gear == GEAR_D)
-                            {
-                                 this->steering_en = true;
-                                 this->braking_en = true;
-                                 this->throttle_en = true;
-                                this->controlSpeed();
-                            }
+//                            this->gear_value = GEAR_D;//gear_obj_in_auto;
+//                            if(this->cur_gear == GEAR_E || this->cur_gear == GEAR_D)
+//                            {
+//                                 this->steering_en = true;
+//                                 this->braking_en = true;
+//                                 this->throttle_en = true;
+//                                this->controlSpeed();
+//                            }
                         }
                         else
                         {
                             this->gear_en = true;
-                            this->gear_value = GEAR_N;//gear_obj_in_auto;
+//                            this->gear_value = GEAR_N;//gear_obj_in_auto;
 
                             this->steering_en = true;
                             this->braking_en = true;

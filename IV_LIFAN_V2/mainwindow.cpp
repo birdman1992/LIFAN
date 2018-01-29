@@ -2,13 +2,13 @@
 #include "ui_mainwindow.h"
 #include"decisionMake.h"
 #include"gps.h"
-#include "braking.h"
-#include "gear.h"
-#include "steering.h"
-#include "throttle.h"
-#include "lightHorn.h"
-#include "remoteCtrl.h"
-#include "transmission.h"
+//#include "braking.h"
+//#include "gear.h"
+//#include "steering.h"
+//#include "throttle.h"
+//#include "lightHorn.h"
+//#include "remoteCtrl.h"
+//#include "transmission.h"
 #include<QtGui>
 #include<QWheelEvent>
 #include<qmath.h>
@@ -18,13 +18,13 @@
 #include"QFile"
 #include<QTime>
 
-extern Braking brake;
-extern Gear gear;
-extern Steering steering;
-extern Throttle throttle;
-extern LightHorn light_horn;
-extern RemoteCtrl remote_ctrl;
-extern Transmission transmission;
+//extern Braking brake;
+//extern Gear gear;
+//extern Steering steering;
+//extern Throttle throttle;
+//extern LightHorn light_horn;
+//extern RemoteCtrl remote_ctrl;
+//extern Transmission transmission;
 
 unsigned long cnt=0;      //模拟跟踪
 double x_start;//起始点x
@@ -116,47 +116,47 @@ void MainWindow::paintEvent(QPaintEvent *)
     //目标速度
     ui->obj_speed->setText(QString::number(decisionMake.vehicle_speed_obj));
     //前轮转角
-    ui->wheelangle->setText(QString::number(steering.EPS_SteeringWheelAngle/15.2));
+//    ui->wheelangle->setText(QString::number(steering.EPS_SteeringWheelAngle/15.2));
     //制动压力
-    ui->braking_pressure->setText(QString::number(brake.ls_prur));
+//    ui->braking_pressure->setText(QString::number(brake.ls_prur));
     //档位
-    switch (gear.cur_gear) {
-    case 10:
-        ui->gear_value->setText("P");
-        break;
-    case 11:
-        ui->gear_value->setText("R");
-        break;
-    case 12:
-        ui->gear_value->setText("N");
-        break;
-    case 13:
-        ui->gear_value->setText("D");
-        break;
-    case 14:
-        ui->gear_value->setText("E");
-        break;
-    case 15:
-        ui->gear_value->setText("L");
-    default:
-        ui->gear_value->setText("数据错误");
-        break;
-    }
+//    switch (gear.cur_gear) {
+//    case 10:
+//        ui->gear_value->setText("P");
+//        break;
+//    case 11:
+//        ui->gear_value->setText("R");
+//        break;
+//    case 12:
+//        ui->gear_value->setText("N");
+//        break;
+//    case 13:
+//        ui->gear_value->setText("D");
+//        break;
+//    case 14:
+//        ui->gear_value->setText("E");
+//        break;
+//    case 15:
+//        ui->gear_value->setText("L");
+//    default:
+//        ui->gear_value->setText("数据错误");
+//        break;
+//    }
     //速度
     ui->vehicle_speed->setText(QString::number(decisionMake.vehicle_speed ));
     //油门开度
     ui->throttle_open->setText(QString::number(decisionMake.throttle_open ));
     //目标开度
-    ui->desire_throttle_open->setText(QString::number(throttle.CUR_THRT_OPN));
+//    ui->desire_throttle_open->setText(QString::number(throttle.CUR_THRT_OPN));
     //遥控
-    if(remote_ctrl.auto_manual) ui->auto_manual->setText("自动模式");
-    else
-    {
-        ui->auto_manual->setText("手动模式");
-        ui->launch_stop->setText("");
-    }
-    if(remote_ctrl.auto_manual&&remote_ctrl.launch_stop) ui->launch_stop->setText("启动");
-    else if(remote_ctrl.auto_manual&&(!remote_ctrl.launch_stop)) ui->launch_stop->setText("停止");
+//    if(remote_ctrl.auto_manual) ui->auto_manual->setText("自动模式");
+//    else
+//    {
+//        ui->auto_manual->setText("手动模式");
+//        ui->launch_stop->setText("");
+//    }
+//    if(remote_ctrl.auto_manual&&remote_ctrl.launch_stop) ui->launch_stop->setText("启动");
+//    else if(remote_ctrl.auto_manual&&(!remote_ctrl.launch_stop)) ui->launch_stop->setText("停止");
     if(decisionMake.urg_brake_flag)
     {
         ui->urg_brake_falg->setText("紧急制动状态");
@@ -396,7 +396,7 @@ void MainWindow::paintEvent(QPaintEvent *)
     painter.drawLine(0,0,0,-30);
     //前轮转角方向（偏航角+前轮转角）
     painter.setPen(Qt::green);
-    painter.rotate(-steering.EPS_SteeringWheelAngle/15.2);//y方向顺时针旋转,方向盘转角左正右负
+//    painter.rotate(-steering.EPS_SteeringWheelAngle/15.2);//y方向顺时针旋转,方向盘转角左正右负
     painter.drawLine(0,0,0,-30);
 
     painter.restore();//恢复到旋转前的状态
@@ -641,7 +641,7 @@ void MainWindow::savepathdata()
         QTime qctime = QTime::currentTime();
         QString qstrtime =qctime.toString("h:m:s.z");
 
-        txtOutput <<qstrtime<<"   "<< QString::number(gps_data.m_strLatitude,'f',7) <<"   "<<QString::number(gps_data.m_strLongitude,'f',7)<<"   "<<"   "<<QString::number(gps_track[decisionMake.cp_sn][3],'f',7)<<"   "<<QString::number(gps_data.m_strHeading,'f',7)<<"   "<<QString::number(gps_track[decisionMake.cp_sn][4],'f',2)<<"   "<<QString::number(gps_data.m_strVe,'f',7)<<"   "<<QString::number(gps_data.m_strVn,'f',7)<<"   "<<QString::number(gps_data.m_strVu,'f',7)<<"   "<<QString::number(decisionMake.steering_angle,'f',2) <<"   "<<QString::number(steering.EPS_SteeringWheelAngle,'f',2)<<"\r\n";
+//        txtOutput <<qstrtime<<"   "<< QString::number(gps_data.m_strLatitude,'f',7) <<"   "<<QString::number(gps_data.m_strLongitude,'f',7)<<"   "<<"   "<<QString::number(gps_track[decisionMake.cp_sn][3],'f',7)<<"   "<<QString::number(gps_data.m_strHeading,'f',7)<<"   "<<QString::number(gps_track[decisionMake.cp_sn][4],'f',2)<<"   "<<QString::number(gps_data.m_strVe,'f',7)<<"   "<<QString::number(gps_data.m_strVn,'f',7)<<"   "<<QString::number(gps_data.m_strVu,'f',7)<<"   "<<QString::number(decisionMake.steering_angle,'f',2) <<"   "<<QString::number(steering.EPS_SteeringWheelAngle,'f',2)<<"\r\n";
 
         file.close();
     }

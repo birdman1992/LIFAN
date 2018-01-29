@@ -14,6 +14,11 @@ public:
     int brake_control(unsigned char brake_ist);
     int Read_status();
 
+    //三个运行接口
+    void inputDataSensor();
+    void outputDataActuator();
+    void runLowerLayer();
+
     int Initial_flag;
     unsigned char cur_mode;
     unsigned char cur_gear;

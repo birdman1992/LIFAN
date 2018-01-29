@@ -2,7 +2,6 @@
 #define LOWERLAYER_H
 
 #include "gear.h"
-#include "driver/lowlayer.h"
 
 class LowerLayer
 {
@@ -13,8 +12,6 @@ public:
     void inputDataSensor();
     void ouputDataActuator();
 private: /*this is output variables*/
-    lowlayer driver_lowlayer;
-
     unsigned char gear_en;
     unsigned char gear_value;
 

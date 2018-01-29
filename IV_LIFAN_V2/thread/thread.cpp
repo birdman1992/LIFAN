@@ -26,6 +26,8 @@ void InitSystem(void)
        decisionMake.initiate();
 }
 
+lowlayer lower_layer;
+
 LowlayerThrd::LowlayerThrd()
 {
         ;
@@ -39,7 +41,7 @@ void LowlayerThrd::run()
 
         /***for the program***/
         lower_layer.inputDataSensor();
-        lower_layer.ouputDataActuator();
+        lower_layer.outputDataActuator();
         lower_layer.runLowerLayer();
         /*******************/
         mycond_1.wakeOne();
@@ -49,27 +51,27 @@ void LowlayerThrd::run()
     }
 }
 
-Lidar16Thrd::Lidar16Thrd()
-{
-        ;
-}
+//Lidar16Thrd::Lidar16Thrd()
+//{
+//        ;
+//}
 
-float xx = 0;
-void Lidar16Thrd::run()
-{
-    while(true)
-    {
+//float xx = 0;
+//void Lidar16Thrd::run()
+//{
+//    while(true)
+//    {
 
-        myMutex_1.lock(); //lock the mutex
-        mycond_1.wait(&myMutex_1,1); // wait for the mutex to unlock, sum of 1 < 20ms
+//        myMutex_1.lock(); //lock the mutex
+//        mycond_1.wait(&myMutex_1,1); // wait for the mutex to unlock, sum of 1 < 20ms
 
-        qDebug("2222");
-        lane_main();
+//        qDebug("2222");
+//        lane_main();
 
-        mycond_2.wakeOne();
-        myMutex_2.unlock();
-    }
-}
+//        mycond_2.wakeOne();
+//        myMutex_2.unlock();
+//    }
+//}
 
 GpsThrd::GpsThrd()
 {
@@ -116,20 +118,20 @@ void DecisionMakeThrd::run()
        }//
 }
 
-Lidar4Thrd::Lidar4Thrd()
-{
-;
-}
+//Lidar4Thrd::Lidar4Thrd()
+//{
+//;
+//}
 
-//extern std::vector<ScanPointEcu> point;
-void Lidar4Thrd::run()
-{
-    while(true)
-    {
-        myMutex_4.lock(); //lock the mutex
-        mycond_4.wait(&myMutex_4,1); // wait for the mutex to unlock, sum of 1 < 20ms
-        qDebug("5555");
-        initialLidar4();
-    }
-}
+////extern std::vector<ScanPointEcu> point;
+//void Lidar4Thrd::run()
+//{
+//    while(true)
+//    {
+//        myMutex_4.lock(); //lock the mutex
+//        mycond_4.wait(&myMutex_4,1); // wait for the mutex to unlock, sum of 1 < 20ms
+//        qDebug("5555");
+//        initialLidar4();
+//    }
+//}
 

@@ -10,8 +10,8 @@
 #endif
 
 
-OS_EXT LowerLayer lower_layer;
-OS_EXT Ibeo4 ibeo4;
+//OS_EXT LowerLayer lower_layer;
+//OS_EXT Ibeo4 ibeo4;
 OS_EXT GpsData gps_data;
 OS_EXT DecisionMake decisionMake;
 OS_EXT Parameters parameters;

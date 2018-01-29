@@ -13,23 +13,23 @@ protected:
     void run();
 };
 
-class Lidar4Thrd: public QThread
-{
-    Q_OBJECT
-public:
-    Lidar4Thrd();
-protected:
-    void run();
-};
+//class Lidar4Thrd: public QThread
+//{
+//    Q_OBJECT
+//public:
+//    Lidar4Thrd();
+//protected:
+//    void run();
+//};
 
-class Lidar16Thrd: public QThread
-{
-    Q_OBJECT
-public:
-    Lidar16Thrd();
-protected:
-    void run();
-};
+//class Lidar16Thrd: public QThread
+//{
+//    Q_OBJECT
+//public:
+//    Lidar16Thrd();
+//protected:
+//    void run();
+//};
 
 class GpsThrd: public QThread
 {
